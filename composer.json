@@ -1,0 +1,52 @@
+{
+  "name": "swow-cloud/swow-demo",
+  "description": "description",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "heping",
+      "email": "84705412@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SwowCloud\\SwowDemo\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "SwowCloud\\SwowDemoTest\\": "tests"
+    }
+  },
+  "require": {
+    "php": ">=8.1",
+    "ext-bcmath": "*",
+    "ext-iconv": "*",
+    "ext-pdo": "*",
+    "ext-redis": ">=5.3",
+    "ext-sockets": "*",
+    "swow/swow": "dev-develop"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "kubawerlos/php-cs-fixer-custom-fixers": "^3.2",
+    "phpunit/phpunit": "^9.5",
+    "roave/security-advisories": "dev-latest",
+    "steevanb/php-backtrace": "^2.1",
+    "symfony/var-dumper": "^5.2"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "test": "phpunit --prepend tests/bootstrap.php -c phpunit.xml --colors=always",
+    "cs-fix": [ "@php vendor/bin/php-cs-fixer fix" ],
+    "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./app ./config"
+  }
+}
