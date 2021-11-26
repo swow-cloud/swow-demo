@@ -25,6 +25,7 @@
     "ext-pdo": "*",
     "ext-redis": ">=5.3",
     "ext-sockets": "*",
+    "revolt/event-loop": "1.x-dev",
     "swow/swow": "dev-develop"
   },
   "require-dev": {
